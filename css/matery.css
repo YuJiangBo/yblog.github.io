@@ -4,6 +4,12 @@
     .container {
         width: 95%;
     }
+	.bg-cover .title {
+	    font-size: 2rem;
+	    line-height: 1.85em;
+	    margin-bottom: 20px;
+	    position: relative;
+	}
 }
 
 /*中等屏幕下(平板类)的样式*/
@@ -11,6 +17,12 @@
     .container {
         width: 90%;
     }
+	.bg-cover .title {
+	    font-size: 3rem;
+	    line-height: 1.85em;
+	    margin-bottom: 20px;
+	    position: relative;
+	}
 }
 
 /*大屏幕下(桌面类)的样式*/
@@ -600,7 +612,7 @@ header .go-back i {
 }
 
 .bg-cover .title {
-    font-size: 3rem;
+    font-size: 4rem;
     line-height: 1.85em;
     margin-bottom: 20px;
     position: relative;
