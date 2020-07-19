@@ -5,7 +5,7 @@
         width: 95%;
     }
 	.bg-cover .title {
-	    font-size: 2rem;
+	    font-size: 2rem !important;
 	    line-height: 1.85em;
 	    margin-bottom: 20px;
 	    position: relative;
@@ -18,7 +18,7 @@
         width: 90%;
     }
 	.bg-cover .title {
-	    font-size: 3rem;
+	    font-size: 3rem !important;
 	    line-height: 1.85em;
 	    margin-bottom: 20px;
 	    position: relative;
