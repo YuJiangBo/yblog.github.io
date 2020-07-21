@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="text, Yblog">
+    <meta name="keywords" content="yml语法, Yblog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>text | Yblog</title>
+    <title>yml语法 | Yblog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">text</h1>
+                    <h1 class="description center-align post-title">yml语法</h1>
                 </div>
             </div>
         </div>
@@ -428,12 +428,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/yml-springboot-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">-yml -springboot -学习笔记</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/springboot/" class="post-category">
+                                springboot
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -442,7 +455,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-07-20
+                    2020-07-21
                 </div>
                 
 
@@ -463,10 +476,76 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>test</p>
-<img src="/images/pic1.jpg">
+                <h1 id="yml语法学习"><a href="#yml语法学习" class="headerlink" title="yml语法学习"></a>yml语法学习</h1><h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>springboot使用了全局配置文件，配置文件名称是固定的（application）</p>
+<ul>
+<li><p>application.properties</p>
+</li>
+<li><ul>
+<li>语法结构 ：key=value</li>
+</ul>
+</li>
+<li><p>application.yml / application.yaml</p>
+</li>
+<li><ul>
+<li>语法结构 ：key: value  (key:空格value)</li>
+</ul>
+</li>
+</ul>
+<p><strong>配置文件的作用 ：</strong>修改SpringBoot自动配置的默认值，因为SpringBoot在底层都给我们自动配置好了；</p>
+<p>比如我们可以在配置文件中修改Tomcat 默认启动的端口号！测试一下！</p>
+<ul>
+<li>yaml中：</li>
+</ul>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8081</span></code></pre>
+<ul>
+<li>properties中：</li>
+</ul>
+<pre class=" language-properties"><code class="language-properties"><span class="token attr-name">server.port</span><span class="token punctuation">=</span><span class="token attr-value">8081</span></code></pre>
+<h2 id="yml-yaml基础语法"><a href="#yml-yaml基础语法" class="headerlink" title="yml / yaml基础语法"></a>yml / yaml基础语法</h2><p>yml / yaml中语法要求非常严格</p>
+<ul>
+<li>空格不能省略</li>
+<li>以缩进来控制层级关系，只要是左边对齐的一列数据都是同一个层级的。</li>
+<li>属性和值的大小写都是十分敏感的。</li>
+</ul>
+<p><strong>字面量：普通的值  [ 数字，布尔值，字符串  ]</strong></p>
+<blockquote>
+<p>k: v    (一定注意英文冒号后面的空格)</p>
+</blockquote>
+<p>字面量直接写在后面就可以 ， 字符串默认不用加上双引号或者单引号；</p>
+<p>注意：</p>
+<ul>
+<li><p>“ ” 双引号，不会转义字符串里面的特殊字符 ， 特殊字符会作为本身想表示的意思；</p>
+<p>比如 ：name: “hello \n world”  输出 ：hello  换行  world</p>
+</li>
+<li><p>‘’ 单引号，会转义特殊字符 ， 特殊字符最终会变成和普通字符一样输出</p>
+<p>比如 ：name: ‘hello \n world’  输出 ：hello  \n  world</p>
+</li>
+</ul>
+<p><strong>在表示数组时（list、set）</strong></p>
+<p>用‘ - ’表示每一个元素</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">pets</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> cat
+    <span class="token punctuation">-</span> dog
+    <span class="token punctuation">-</span> pig</code></pre>
+<p>行内写法：</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">pets</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>cat<span class="token punctuation">,</span>dog<span class="token punctuation">,</span>pig<span class="token punctuation">]</span></code></pre>
+<p><strong>在表示对象、Map时（键值对）</strong></p>
+<p>在下一行来写对象的属性和值得关系，注意缩进；比如：</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true">#格式</span>
+<span class="token comment" spellcheck="true">#k: </span>
+<span class="token comment" spellcheck="true">#    v1:</span>
+<span class="token comment" spellcheck="true">#    v2:</span>
 
-<p><img src="/images/pic1.jpg" alt=""></p>
+<span class="token comment" spellcheck="true">#例子</span>
+<span class="token key atrule">student</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> zhangsan
+    <span class="token key atrule">age</span><span class="token punctuation">:</span> <span class="token number">21</span></code></pre>
+<p>行内写法</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">student</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token key atrule">name</span><span class="token punctuation">:</span> zhangsan<span class="token punctuation">,</span><span class="token key atrule">age</span><span class="token punctuation">:</span> <span class="token number">21</span><span class="token punctuation">}</span></code></pre>
+<p><strong>end</strong></p>
+<p>本篇文章为个人学习笔记，参照dalao狂神说，特此<strong>感谢</strong>！</p>
+<p>参照博客：<a href="https://www.cnblogs.com/hellokuangshen/p/12457000.html" target="_blank" rel="noopener">https://www.cnblogs.com/hellokuangshen/p/12457000.html</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -510,7 +589,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://github.com/YuJiangBo/2020/07/20/text/">https://github.com/YuJiangBo/2020/07/20/text/</a>
+                    <a href="https://github.com/YuJiangBo/2020/07/21/yml-pei-zhi/">https://github.com/YuJiangBo/2020/07/21/yml-pei-zhi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -547,7 +626,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/tags/yml-springboot-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">-yml -springboot -学习笔记</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -713,9 +796,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2020/07/21/yml-pei-zhi/">
                     <div class="card-image">
@@ -733,9 +817,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -748,6 +832,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -766,50 +851,39 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/19/testblog2/">
+                <a href="/2020/07/20/text/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/14.jpg" class="responsive-img" alt="TestBlog2">
+                        <img src="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/21.jpg" class="responsive-img" alt="text">
                         
-                        <span class="card-title">TestBlog2</span>
+                        <span class="card-title">text</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            测试用Test Blog
+                            test
 
-代码高亮
 
-&lt;div id="navContainer" class="nav-wrapper container">
-    &lt;div class="brand-logo">
-        &lt
+
+
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-20
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/testBlog/" class="post-category">
-                                    testBlog
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            YuJiangBo
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
-                    </a>
-                    
                 </div>
                 
             </div>
