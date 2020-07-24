@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>SpringbootError400</title>
+      <link href="/2020/07/24/springbooterror400/"/>
+      <url>/2020/07/24/springbooterror400/</url>
+      
+        <content type="html"><![CDATA[<h1 id="学Springboot时遇到的Error400错误"><a href="#学Springboot时遇到的Error400错误" class="headerlink" title="学Springboot时遇到的Error400错误"></a>学Springboot时遇到的Error400错误</h1><p>找了半天的   bad request ，status = 400 的bug，终于找到原因了<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">😄</span>,对于我这样的小白来说真的头大</p><blockquote><p>具体错误</p></blockquote><p>先是从登录页面输入username和password，结果报了个bad request,status=400的错 本来 ？后面是要跟参数的，但是发现并没有</p><p><img src="/images/springbootError400/2020-07-24-02.png" alt=""></p><blockquote><p>错误原因</p></blockquote><p>@RequestParam这里获取前端的数据是根据name属性传递的</p><p><img src="/images/springbootError400/2020-07-24-03.png" alt=""></p><p><img src="/images/springbootError400/2020-07-24-04.png" alt=""></p><blockquote><p>加上之后</p></blockquote><p><img src="/images/springbootError400/2020-07-24-05.png" alt=""></p><blockquote><p>成功访问</p></blockquote><p><img src="/images/springbootError400/2020-07-24-06.png" alt=""></p><blockquote><p>以上是个人解决办法，记录一下，防止以后踩坑 ::</p></blockquote><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> springboot </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> error </tag>
+            
+            <tag> springboot </tag>
+            
+            <tag> 学习笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>yml语法</title>
       <link href="/2020/07/21/yml-yu-fa-xue-xi/"/>
       <url>/2020/07/21/yml-yu-fa-xue-xi/</url>
@@ -20,11 +49,11 @@
       
         <tags>
             
-            <tag> yml </tag>
-            
             <tag> springboot </tag>
             
             <tag> 学习笔记 </tag>
+            
+            <tag> yml </tag>
             
         </tags>
       
@@ -74,9 +103,9 @@
       
         <tags>
             
-            <tag> hexo </tag>
-            
             <tag> error </tag>
+            
+            <tag> hexo </tag>
             
         </tags>
       

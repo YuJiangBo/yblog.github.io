@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo新建博客报错, Yblog">
+    <meta name="keywords" content="SpringbootError400, Yblog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>hexo新建博客报错 | Yblog</title>
+    <title>SpringbootError400 | Yblog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">hexo新建博客报错</h1>
+                    <h1 class="description center-align post-title">SpringbootError400</h1>
                 </div>
             </div>
         </div>
@@ -434,8 +434,12 @@
                                 <span class="chip bg-color">error</span>
                             </a>
                         
-                            <a href="/tags/hexo/">
-                                <span class="chip bg-color">hexo</span>
+                            <a href="/tags/springboot/">
+                                <span class="chip bg-color">springboot</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">学习笔记</span>
                             </a>
                         
                     </div>
@@ -446,8 +450,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Hexo/" class="post-category">
-                                Hexo
+                            <a href="/categories/springboot/" class="post-category">
+                                springboot
                             </a>
                         
                     </div>
@@ -459,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-07-16
+                    2020-07-24
                 </div>
                 
 
@@ -480,22 +484,29 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="新建博客时遇到的错误"><a href="#新建博客时遇到的错误" class="headerlink" title="新建博客时遇到的错误"></a>新建博客时遇到的错误</h1><p>在用<span style="background-color:black;color:white">hexo n XXXX</span>新建博客时出现了下面的错误，最开始以为是文件名含有中文所以不支持，但改为英文后还是不行，最后自己摸索加上百度解决了这个问题。</p>
-<p><strong>具体错误</strong></p>
+                <h1 id="学Springboot时遇到的Error400错误"><a href="#学Springboot时遇到的Error400错误" class="headerlink" title="学Springboot时遇到的Error400错误"></a>学Springboot时遇到的Error400错误</h1><p>找了半天的   bad request ，status = 400 的bug，终于找到原因了<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">😄</span>,对于我这样的小白来说真的头大</p>
 <blockquote>
-<p>YAMLException: can not read a block mapping entry; a multiline key may not be an implicit key at line 4, column 5:</p>
-<p>tags:</p>
+<p>具体错误</p>
 </blockquote>
-<p>如图：</p>
-<p><img src="/images/new-blog-error/hexo2020-7-21-02.png" alt=""></p>
-<p><strong>解决方法</strong></p>
-<p>要用英文状态下的冒号，且冒号后面要加空格</p>
-<p><img src="/images/new-blog-error/hexo2020-7-21-04.jpg" alt=""></p>
-<p><strong>最后可以了，效果</strong></p>
-<p><img src="/images/new-blog-error/hexo2020-7-21-03.png" alt=""></p>
-<p><strong>另外 添加标签时还有一点小错误</strong></p>
-<p>不过通过修改已经好了</p>
-<p><img src="/images/new-blog-error/hexo2020-7-22-01.png" alt=""></p>
+<p>先是从登录页面输入username和password，结果报了个bad request,status=400的错 本来 ？后面是要跟参数的，但是发现并没有</p>
+<p><img src="/images/springbootError400/2020-07-24-02.png" alt=""></p>
+<blockquote>
+<p>错误原因</p>
+</blockquote>
+<p>@RequestParam这里获取前端的数据是根据name属性传递的</p>
+<p><img src="/images/springbootError400/2020-07-24-03.png" alt=""></p>
+<p><img src="/images/springbootError400/2020-07-24-04.png" alt=""></p>
+<blockquote>
+<p>加上之后</p>
+</blockquote>
+<p><img src="/images/springbootError400/2020-07-24-05.png" alt=""></p>
+<blockquote>
+<p>成功访问</p>
+</blockquote>
+<p><img src="/images/springbootError400/2020-07-24-06.png" alt=""></p>
+<blockquote>
+<p>以上是个人解决办法，记录一下，防止以后踩坑 ::</p>
+</blockquote>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -539,7 +550,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://github.com/YuJiangBo/2020/07/16/hexo-xin-jian-bo-ke-bao-cuo/">https://github.com/YuJiangBo/2020/07/16/hexo-xin-jian-bo-ke-bao-cuo/</a>
+                    <a href="https://github.com/YuJiangBo/2020/07/24/springbooterror400/">https://github.com/YuJiangBo/2020/07/24/springbooterror400/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -581,8 +592,12 @@
                                     <span class="chip bg-color">error</span>
                                 </a>
                             
-                                <a href="/tags/hexo/">
-                                    <span class="chip bg-color">hexo</span>
+                                <a href="/tags/springboot/">
+                                    <span class="chip bg-color">springboot</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">学习笔记</span>
                                 </a>
                             
                         </div>
@@ -750,93 +765,36 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2020/07/19/testblog2/">
+                <a href="/2020/07/24/springbooterror400/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/20.jpg" class="responsive-img" alt="TestBlog">
+                        <img src="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/11.jpg" class="responsive-img" alt="SpringbootError400">
                         
-                        <span class="card-title">TestBlog</span>
+                        <span class="card-title">SpringbootError400</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            测试用Test Blog
-
-代码高亮
-
-&lt;div id="navContainer" class="nav-wrapper container">
-    &lt;div class="brand-logo">
-        &lt
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-19
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/testBlog/" class="post-category">
-                                    testBlog
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/07/16/hexo-xin-jian-bo-ke-bao-cuo/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="hexo新建博客报错">
-                        
-                        <span class="card-title">hexo新建博客报错</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            新建博客时遇到的错误在用hexo n XXXX新建博客时出现了下面的错误，最开始以为是文件名含有中文所以不支持，但改为英文后还是不行，最后自己摸索加上百度解决了这个问题。
-具体错误
-
-YAMLException: can not read 
+                            找了半天的bad request ，status = 400 的bug，终于找到原因了
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-24
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Hexo/" class="post-category">
-                                    Hexo
+                            <a href="/categories/springboot/" class="post-category">
+                                    springboot
                                 </a>
                             
                             
@@ -851,8 +809,69 @@ YAMLException: can not read
                         <span class="chip bg-color">error</span>
                     </a>
                     
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
+                    <a href="/tags/springboot/">
+                        <span class="chip bg-color">springboot</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">学习笔记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/07/21/yml-yu-fa-xue-xi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/0.jpg" class="responsive-img" alt="yml语法">
+                        
+                        <span class="card-title">yml语法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            springboot配置文件-yml语法
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/springboot/" class="post-category">
+                                    springboot
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/springboot/">
+                        <span class="chip bg-color">springboot</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">学习笔记</span>
+                    </a>
+                    
+                    <a href="/tags/yml/">
+                        <span class="chip bg-color">yml</span>
                     </a>
                     
                 </div>
