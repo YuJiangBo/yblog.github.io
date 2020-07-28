@@ -489,21 +489,21 @@
 <p>具体错误</p>
 </blockquote>
 <p>先是从登录页面输入username和password，结果报了个bad request,status=400的错 本来 ？后面是要跟参数的，但是发现并没有</p>
-<p><img src="/images/springbootError400/2020-07-24-02.png" alt=""></p>
+<p><img src="/images/springbootError400/2020-07-24-02.png" alt></p>
 <blockquote>
 <p>错误原因</p>
 </blockquote>
 <p>@RequestParam这里获取前端的数据是根据name属性传递的</p>
-<p><img src="/images/springbootError400/2020-07-24-03.png" alt=""></p>
-<p><img src="/images/springbootError400/2020-07-24-04.png" alt=""></p>
+<p><img src="/images/springbootError400/2020-07-24-03.png" alt></p>
+<p><img src="/images/springbootError400/2020-07-24-04.png" alt></p>
 <blockquote>
 <p>加上之后</p>
 </blockquote>
-<p><img src="/images/springbootError400/2020-07-24-05.png" alt=""></p>
+<p><img src="/images/springbootError400/2020-07-24-05.png" alt></p>
 <blockquote>
 <p>成功访问</p>
 </blockquote>
-<p><img src="/images/springbootError400/2020-07-24-06.png" alt=""></p>
+<p><img src="/images/springbootError400/2020-07-24-06.png" alt></p>
 <blockquote>
 <p>以上是个人解决办法，记录一下，防止以后踩坑 ::</p>
 </blockquote>
