@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="springboot整合JDBC, Yblog">
+    <meta name="keywords" content="springboot整合mybatis, Yblog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>springboot整合JDBC | Yblog</title>
+    <title>springboot整合mybatis | Yblog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">springboot整合JDBC</h1>
+                    <h1 class="description center-align post-title">springboot整合mybatis</h1>
                 </div>
             </div>
         </div>
@@ -434,12 +434,8 @@
                                 <span class="chip bg-color">springboot</span>
                             </a>
                         
-                            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">学习笔记</span>
-                            </a>
-                        
-                            <a href="/tags/JDBC/">
-                                <span class="chip bg-color">JDBC</span>
+                            <a href="/tags/mybatis/">
+                                <span class="chip bg-color">mybatis</span>
                             </a>
                         
                     </div>
@@ -463,7 +459,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-07-27
+                    2020-07-29
                 </div>
                 
 
@@ -484,101 +480,234 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="springboot整合JDBC"><a href="#springboot整合JDBC" class="headerlink" title="springboot整合JDBC"></a>springboot整合JDBC</h1><blockquote>
-<p>创建springboot项目，选择如下依赖</p>
-</blockquote>
-<p><img src="/images/springboot%E6%95%B4%E5%90%88JDBC/dependence.png" alt=""></p>
-<p><strong>或者直接在springboot项目中导入如下依赖</strong></p>
-<pre class=" language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!--    web    --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
-<span class="token comment" spellcheck="true">&lt;!--JDBC--></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-jdbc<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
-<span class="token comment" spellcheck="true">&lt;!--MySQL--></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>mysql<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mysql-connector-java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>5.1.47<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">></span></span>runtime<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">></span></span>
+                <h1 id="springboot整合mybatis"><a href="#springboot整合mybatis" class="headerlink" title="springboot整合mybatis"></a>springboot整合mybatis</h1><blockquote>
+<h2 id="配置pom-xml，引入mybatis的依赖"><a href="#配置pom-xml，引入mybatis的依赖" class="headerlink" title="配置pom.xml，引入mybatis的依赖"></a>配置pom.xml，引入mybatis的依赖</h2></blockquote>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.mybatis.spring.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mybatis-spring-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.1.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
 <blockquote>
-<p>配置数据源</p>
-</blockquote>
-<pre class=" language-yml"><code class="language-yml">#数据源
+<h2 id="配置yml"><a href="#配置yml" class="headerlink" title="配置yml"></a>配置yml</h2></blockquote>
+<pre class=" language-yml"><code class="language-yml">#端口号
+server:
+  port: 8082
+
+#数据源
 spring:
   datasource:
     username: root
     password: root
     url: jdbc:mysql://localhost:3306/employ_manage
-    driver-class-name: com.mysql.jdbc.Driver</code></pre>
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  #mapper.xml的位置。本人的是在resources的mapper文件夹里
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.yu.pojo   #配置别名。表示pojo包下所有的实体类</code></pre>
 <blockquote>
-<p>JDBCTemplate</p>
-</blockquote>
-<p>1、有了数据源(com.zaxxer.hikari.HikariDataSource)，然后可以拿到数据库连接(java.sql.Connection)，有了连接，就可以使用原生的 JDBC 语句来操作数据库；</p>
-<p>2、即使不使用第三方第数据库操作框架，如 MyBatis等，Spring 本身也对原生的JDBC 做了轻量级的封装，即JdbcTemplate。</p>
-<p>3、数据库操作的所有 CRUD 方法都在 JdbcTemplate 中。</p>
-<p>4、Spring Boot 不仅提供了默认的数据源，同时默认已经配置好了 JdbcTemplate 放在了容器中，程序员只需自己注入即可使用</p>
-<p>5、JdbcTemplate 的自动配置是依赖 org.springframework.boot.autoconfigure.jdbc 包下的 JdbcTemplateConfiguration 类</p>
-<p><strong>JdbcTemplate主要提供以下几类方法：</strong></p>
-<ul>
-<li>execute方法：可以用于执行任何SQL语句，一般用于执行DDL语句；</li>
-<li>update方法及batchUpdate方法：update方法用于执行新增、修改、删除等语句；batchUpdate方法用于执行批处理相关语句；</li>
-<li>query方法及queryForXXX方法：用于执行查询相关语句；</li>
-<li>call方法：用于执行存储过程、函数相关语句。</li>
-</ul>
+<h2 id="编写实体类：User"><a href="#编写实体类：User" class="headerlink" title="编写实体类：User"></a>编写实体类：User</h2></blockquote>
+<p><em>此处使用了Lombok</em></p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>yu<span class="token punctuation">.</span>pojo<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> lombok<span class="token punctuation">.</span>AllArgsConstructor<span class="token punctuation">;</span>
+<span class="token keyword">import</span> lombok<span class="token punctuation">.</span>Data<span class="token punctuation">;</span>
+<span class="token keyword">import</span> lombok<span class="token punctuation">.</span>NoArgsConstructor<span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Data</span>
+<span class="token annotation punctuation">@NoArgsConstructor</span>
+<span class="token annotation punctuation">@AllArgsConstructor</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">User</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> Integer id<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> String name<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> String password<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <blockquote>
-<p>这里就简单用一个controller测试</p>
-</blockquote>
-<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@RestController</span>
+<h2 id="mapper接口：UserMapper"><a href="#mapper接口：UserMapper" class="headerlink" title="mapper接口：UserMapper"></a>mapper接口：UserMapper</h2></blockquote>
+<p><em>这里加了@Mapper、@Repository两个注解</em></p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>yu<span class="token punctuation">.</span>mapper<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>yu<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span>User<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>ibatis<span class="token punctuation">.</span>annotations<span class="token punctuation">.</span>Mapper<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span>Repository<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>List<span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Mapper</span>
+<span class="token annotation punctuation">@Repository</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">UserMapper</span> <span class="token punctuation">{</span>
+
+    List<span class="token operator">&lt;</span>User<span class="token operator">></span> <span class="token function">getUsers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    User <span class="token function">getUserById</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">addUser</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">updateUser</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">deleteUser</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<blockquote>
+<h2 id="UserMapper-xml"><a href="#UserMapper-xml" class="headerlink" title="UserMapper.xml"></a>UserMapper.xml</h2></blockquote>
+<p><em>这里的namespace是指UserMapper的位置</em></p>
+<pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8" ?></span>
+<span class="token doctype">&lt;!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mapper</span> <span class="token attr-name">namespace</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.yu.mapper.UserMapper<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token comment" spellcheck="true">&lt;!--    查询所有--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>getUsers<span class="token punctuation">"</span></span> <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.yu.pojo.User<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        select * from user;
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span>
+
+<span class="token comment" spellcheck="true">&lt;!--    通过id查询--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>getUserById<span class="token punctuation">"</span></span> <span class="token attr-name">parameterType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>int<span class="token punctuation">"</span></span> <span class="token attr-name">resultType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.yu.pojo.User<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        select * from user where id=#{id}
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span>
+
+<span class="token comment" spellcheck="true">&lt;!--    添加用户--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>insert</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>addUser<span class="token punctuation">"</span></span> <span class="token attr-name">parameterType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.yu.pojo.User<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        insert into user (name,password) values (#{name},#{password})
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>insert</span><span class="token punctuation">></span></span>
+
+<span class="token comment" spellcheck="true">&lt;!--    修改用户--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>update</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>updateUser<span class="token punctuation">"</span></span> <span class="token attr-name">parameterType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>com.yu.pojo.User<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        update user set name=#{name},password=#{password} where id=#{id}
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>update</span><span class="token punctuation">></span></span>
+
+<span class="token comment" spellcheck="true">&lt;!--    删除用户--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>delete</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>deleteUser<span class="token punctuation">"</span></span> <span class="token attr-name">parameterType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>int<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        delete from user where id=#{id}
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>delete</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mapper</span><span class="token punctuation">></span></span></code></pre>
+<blockquote>
+<h2 id="UserService接口"><a href="#UserService接口" class="headerlink" title="UserService接口"></a>UserService接口</h2></blockquote>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>yu<span class="token punctuation">.</span>service<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>yu<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span>User<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>List<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">UserService</span> <span class="token punctuation">{</span>
+
+    List<span class="token operator">&lt;</span>User<span class="token operator">></span> <span class="token function">getusers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    User <span class="token function">getUserById</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">addUser</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">updateUser</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">deleteUser</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<blockquote>
+<h2 id="UserServiceImpl实现类"><a href="#UserServiceImpl实现类" class="headerlink" title="UserServiceImpl实现类"></a>UserServiceImpl实现类</h2></blockquote>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>yu<span class="token punctuation">.</span>serviceImpl<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>yu<span class="token punctuation">.</span>mapper<span class="token punctuation">.</span>UserMapper<span class="token punctuation">;</span>
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>yu<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span>User<span class="token punctuation">;</span>
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>yu<span class="token punctuation">.</span>service<span class="token punctuation">.</span>UserService<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Autowired<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span>Service<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>List<span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Service</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserServiceImpl</span> <span class="token keyword">implements</span> <span class="token class-name">UserService</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> UserMapper userMapper<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//    查询所有</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> List<span class="token operator">&lt;</span>User<span class="token operator">></span> <span class="token function">getusers</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> userMapper<span class="token punctuation">.</span><span class="token function">getUsers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">//    通过id查询</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> User <span class="token function">getUserById</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> userMapper<span class="token punctuation">.</span><span class="token function">getUserById</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">//    添加用户</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">addUser</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> userMapper<span class="token punctuation">.</span><span class="token function">addUser</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">//    修改用户</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">updateUser</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> userMapper<span class="token punctuation">.</span><span class="token function">updateUser</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">//    删除用户</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">deleteUser</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> userMapper<span class="token punctuation">.</span><span class="token function">deleteUser</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<blockquote>
+<h2 id="UserController"><a href="#UserController" class="headerlink" title="UserController"></a>UserController</h2></blockquote>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>yu<span class="token punctuation">.</span>controller<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>yu<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span>User<span class="token punctuation">;</span>
+<span class="token keyword">import</span> com<span class="token punctuation">.</span>yu<span class="token punctuation">.</span>service<span class="token punctuation">.</span>UserService<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Autowired<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span>Controller<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>GetMapping<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>PathVariable<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>ResponseBody<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>List<span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Controller</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserController</span> <span class="token punctuation">{</span>
 
     <span class="token annotation punctuation">@Autowired</span>
-    JdbcTemplate jdbcTemplate<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> UserService userService<span class="token punctuation">;</span>
 
-
-    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/getuser"</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> List<span class="token operator">&lt;</span>Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span>Object<span class="token operator">>></span> <span class="token function">userlist</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        String sql <span class="token operator">=</span> <span class="token string">"select * from user"</span><span class="token punctuation">;</span>
-        List<span class="token operator">&lt;</span>Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span>Object<span class="token operator">>></span> users <span class="token operator">=</span> jdbcTemplate<span class="token punctuation">.</span><span class="token function">queryForList</span><span class="token punctuation">(</span>sql<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/getusers"</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@ResponseBody</span>
+    <span class="token keyword">public</span> List<span class="token operator">&lt;</span>User<span class="token operator">></span> <span class="token function">getUsers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        List<span class="token operator">&lt;</span>User<span class="token operator">></span> users <span class="token operator">=</span> userService<span class="token punctuation">.</span><span class="token function">getusers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> users<span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/getuser/{id}"</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@ResponseBody</span>
+    <span class="token keyword">public</span> User <span class="token function">getUser</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span> <span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        User user <span class="token operator">=</span> userService<span class="token punctuation">.</span><span class="token function">getUserById</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> user<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
     <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/adduser"</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> String <span class="token function">addUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        String sql <span class="token operator">=</span> <span class="token string">"insert into user (name,password) values ('zxc','123')"</span><span class="token punctuation">;</span>
-        jdbcTemplate<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>sql<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token string">"add ok"</span><span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@ResponseBody</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">addUsers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        User user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        user<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"yjb"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        user<span class="token punctuation">.</span><span class="token function">setPassword</span><span class="token punctuation">(</span><span class="token string">"123"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> i <span class="token operator">=</span> userService<span class="token punctuation">.</span><span class="token function">addUser</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> i<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
-    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/updateuser/{id}"</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> String <span class="token function">updateUser</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span> <span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        String sql <span class="token operator">=</span> <span class="token string">"update user set name=?,password=? where id="</span><span class="token operator">+</span>id<span class="token punctuation">;</span>
-        Object<span class="token punctuation">[</span><span class="token punctuation">]</span> obj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        obj<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"123"</span><span class="token punctuation">;</span>
-        obj<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"123"</span><span class="token punctuation">;</span>
-        jdbcTemplate<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>sql<span class="token punctuation">,</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/update"</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@ResponseBody</span>
+    <span class="token keyword">public</span> String <span class="token function">updateUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        User user <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        user<span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        user<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"bbb"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        user<span class="token punctuation">.</span><span class="token function">setPassword</span><span class="token punctuation">(</span><span class="token string">"123"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        userService<span class="token punctuation">.</span><span class="token function">updateUser</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token string">"update ok"</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
-    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/deleteuser/{id}"</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/delete/{id}"</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@ResponseBody</span>
     <span class="token keyword">public</span> String <span class="token function">deleteUser</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span> <span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        String sql <span class="token operator">=</span> <span class="token string">"delete from user where id=?"</span><span class="token punctuation">;</span>
-        jdbcTemplate<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>sql<span class="token punctuation">,</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        userService<span class="token punctuation">.</span><span class="token function">deleteUser</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token string">"delete ok"</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-
 <span class="token punctuation">}</span></code></pre>
 <blockquote>
-<p>结果</p>
-</blockquote>
-<p><img src="/images/springboot%E6%95%B4%E5%90%88JDBC/getUser.png" alt=""></p>
-<p><img src="/images/springboot%E6%95%B4%E5%90%88JDBC/addUser.png" alt=""></p>
-<p><img src="/images/springboot%E6%95%B4%E5%90%88JDBC/db.png" alt=""></p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2></blockquote>
+<p><img src="/images/springboot%E6%95%B4%E5%90%88mybatis/springboot_mybatis.png" alt=""></p>
+<p><img src="/images/springboot%E6%95%B4%E5%90%88mybatis/db.png" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -622,7 +751,7 @@ spring:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://github.com/YuJiangBo/2020/07/27/springboot-zheng-he-jdbc/">https://github.com/YuJiangBo/2020/07/27/springboot-zheng-he-jdbc/</a>
+                    <a href="https://github.com/YuJiangBo/2020/07/29/springboot-zheng-he-mybatis/">https://github.com/YuJiangBo/2020/07/29/springboot-zheng-he-mybatis/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -664,12 +793,8 @@ spring:
                                     <span class="chip bg-color">springboot</span>
                                 </a>
                             
-                                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">学习笔记</span>
-                                </a>
-                            
-                                <a href="/tags/JDBC/">
-                                    <span class="chip bg-color">JDBC</span>
+                                <a href="/tags/mybatis/">
+                                    <span class="chip bg-color">mybatis</span>
                                 </a>
                             
                         </div>
@@ -837,9 +962,64 @@ spring:
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2020/07/29/springboot-zheng-he-mybatis/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/0.jpg" class="responsive-img" alt="springboot整合mybatis">
+                        
+                        <span class="card-title">springboot整合mybatis</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            springboot整合mybatis
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/springboot/" class="post-category">
+                                    springboot
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/springboot/">
+                        <span class="chip bg-color">springboot</span>
+                    </a>
+                    
+                    <a href="/tags/mybatis/">
+                        <span class="chip bg-color">mybatis</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/07/27/mysqlerror/">
                     <div class="card-image">
@@ -857,9 +1037,9 @@ spring:
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -881,63 +1061,6 @@ spring:
                     
                     <a href="/tags/MySQL/">
                         <span class="chip bg-color">MySQL</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/07/24/springbooterror400/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/11.jpg" class="responsive-img" alt="SpringbootError400">
-                        
-                        <span class="card-title">SpringbootError400</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            找了半天的bad request ，status = 400 的bug，终于找到原因了
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-24
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/springboot/" class="post-category">
-                                    springboot
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/error/">
-                        <span class="chip bg-color">error</span>
-                    </a>
-                    
-                    <a href="/tags/springboot/">
-                        <span class="chip bg-color">springboot</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">学习笔记</span>
                     </a>
                     
                 </div>
