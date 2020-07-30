@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Categories, Yblog">
+    <meta name="keywords" content="Tag: thymeleaf, Yblog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Categories | Yblog</title>
+    <title>Tag: thymeleaf | Yblog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/libs/awesome/css/all.css">
@@ -350,127 +350,151 @@
 
     
 
-<div id="category-cloud" class="container chip-container">
+<div id="tags" class="container chip-container">
     <div class="card">
         <div class="card-content">
             <div class="tag-title center-align">
-                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;Post Categories
+                <i class="fas fa-tags"></i>&nbsp;&nbsp;Post Tags
             </div>
             <div class="tag-chips">
                 
                 
-                
-                <a href="/categories/%E6%97%A5%E5%B8%B8%E5%87%BAbug/" title="日常出bug: 1">
+                <a href="/tags/MySQL/" title="MySQL: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F9EBEA;">日常出bug
+                            data-tagname="MySQL" style="background-color: #F9EBEA;">MySQL
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/testBlog/" title="testBlog: 1">
+                <a href="/tags/error/" title="error: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F5EEF8;">testBlog
+                            data-tagname="error" style="background-color: #F5EEF8;">error
+                        <span class="tag-length">3</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/hexo/" title="hexo: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="hexo" style="background-color: #D5F5E3;">hexo
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/SpringSecurity/" title="SpringSecurity: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="SpringSecurity" style="background-color: #E8F8F5;">SpringSecurity
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/SpringSecurity/" title="SpringSecurity: 1">
+                <a href="/tags/thymeleaf/" title="thymeleaf: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #D5F5E3;">SpringSecurity
+                             chip-active "
+                            data-tagname="thymeleaf" style="background-color: #FEF9E7;">thymeleaf
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/Hexo/" title="Hexo: 1">
+                <a href="/tags/springboot/" title="springboot: 5">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #E8F8F5;">Hexo
-                        <span class="tag-length">1</span>
+                            data-tagname="springboot" style="background-color: #F8F9F9;">springboot
+                        <span class="tag-length">5</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/springboot/" title="springboot: 4">
+                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="学习笔记: 4">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #FEF9E7;">springboot
+                            data-tagname="学习笔记" style="background-color: #82E0AA;">学习笔记
                         <span class="tag-length">4</span>
                     </span>
                 </a>
                 
+                
+                <a href="/tags/yml/" title="yml: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="yml" style="background-color: #D7BDE2;">yml
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/JDBC/" title="JDBC: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="JDBC" style="background-color: #A3E4D7;">JDBC
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/mybatis/" title="mybatis: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="mybatis" style="background-color: #85C1E9;">mybatis
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
                 
             </div>
         </div>
     </div>
 </div>
 
-
-    
-    <style type="text/css">
-    #category-radar {
-        width: 100%;
-        height: 360px;
-    }
-</style>
-
-<div class="container" data-aos="fade-up">
-    <div class="card">
-        <div id="category-radar" class="card-content"></div>
-    </div>
-</div>
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/libs/echarts/echarts.min.js"></script>
-<script type="text/javascript">
-    let radarChart = echarts.init(document.getElementById('category-radar'));
-
     
 
-    let option = {
-        title: {
-            left: 'center',
-            text: 'Post Categories Radar Chart',
-            textStyle: {
-                fontWeight: 500,
-                fontSize: 22
-            }
-        },
-        tooltip: {},
-        radar: {
-            name: {
-                textStyle: {
-                    color: '#3C4858'
-                }
-            },
-            indicator: [{"name":"日常出bug","max":5},{"name":"testBlog","max":5},{"name":"SpringSecurity","max":5},{"name":"Hexo","max":5},{"name":"springboot","max":5}],
-            nameGap: 5,
-            center: ['50%','55%'],
-            radius: '66%'
-        },
-        series: [{
-            type: 'radar',
-            color: ['#3ecf8e'],
-            itemStyle: {normal: {areaStyle: {type: 'default'}}},
-            data : [
-                {
-                    value : [1,1,1,1,4],
-                    name : 'Number of Categories'
-                }
-            ]
-        }]
-    };
-
-    radarChart.setOption(option);
-</script>
-
-    
-
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+            
+            <div class="article tag-post col s12 m6 l4" data-tags="SpringSecurity, thymeleaf, springboot, 学习笔记" data-aos="fade-up">
+                <div class="card">
+                    <a href="/2020/07/30/springsecrity/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/16.jpg" class="responsive-img" alt="SpringSecrity">
+                            
+                            <span class="card-title">SpringSecrity</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/SpringSecurity/" class="post-category">
+                                SpringSecurity
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </article>
 </main>
+
+
 
 
     <footer class="page-footer bg-color">
