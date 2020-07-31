@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="SpringbootError400, Yblog">
+    <meta name="keywords" content="springboot发邮件, Yblog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>SpringbootError400 | Yblog</title>
+    <title>springboot发邮件 | Yblog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">SpringbootError400</h1>
+                    <h1 class="description center-align post-title">springboot发邮件</h1>
                 </div>
             </div>
         </div>
@@ -438,8 +438,8 @@
                                 <span class="chip bg-color">学习笔记</span>
                             </a>
                         
-                            <a href="/tags/error/">
-                                <span class="chip bg-color">error</span>
+                            <a href="/tags/email/">
+                                <span class="chip bg-color">email</span>
                             </a>
                         
                     </div>
@@ -463,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-07-24
+                    2020-07-31
                 </div>
                 
 
@@ -484,29 +484,26 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="学Springboot时遇到的Error400错误"><a href="#学Springboot时遇到的Error400错误" class="headerlink" title="学Springboot时遇到的Error400错误"></a>学Springboot时遇到的Error400错误</h1><p>找了半天的   bad request ，status = 400 的bug，终于找到原因了<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">😄</span>,对于我这样的小白来说真的头大</p>
+                <h1 id="springboot发邮件"><a href="#springboot发邮件" class="headerlink" title="springboot发邮件"></a>springboot发邮件</h1><p><strong>学习用springboot发送qq邮件</strong></p>
 <blockquote>
-<p>具体错误</p>
-</blockquote>
-<p>先是从登录页面输入username和password，结果报了个bad request,status=400的错 本来 ？后面是要跟参数的，但是发现并没有</p>
-<p><img src="/images/springbootError400/2020-07-24-02.png" alt=""></p>
+<h2 id="进入qq邮箱，开启服务，保存密钥"><a href="#进入qq邮箱，开启服务，保存密钥" class="headerlink" title="进入qq邮箱，开启服务，保存密钥"></a>进入qq邮箱，开启服务，保存密钥</h2></blockquote>
+<p><img src="/images/springboot%E5%8F%91%E9%82%AE%E4%BB%B6/mail_path.png" alt=""></p>
+<p><img src="/images/springboot%E5%8F%91%E9%82%AE%E4%BB%B6/mail_pwd.png" alt=""></p>
 <blockquote>
-<p>错误原因</p>
-</blockquote>
-<p>@RequestParam这里获取前端的数据是根据name属性传递的</p>
-<p><img src="/images/springbootError400/2020-07-24-03.png" alt=""></p>
-<p><img src="/images/springbootError400/2020-07-24-04.png" alt=""></p>
+<h2 id="导入email相关的依赖"><a href="#导入email相关的依赖" class="headerlink" title="导入email相关的依赖"></a>导入email相关的依赖</h2></blockquote>
+<pre class=" language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!--邮件--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-mail<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
 <blockquote>
-<p>加上之后</p>
-</blockquote>
-<p><img src="/images/springbootError400/2020-07-24-05.png" alt=""></p>
+<h2 id="配置application-properties"><a href="#配置application-properties" class="headerlink" title="配置application.properties"></a>配置application.properties</h2></blockquote>
+<p><img src="/images/springboot%E5%8F%91%E9%82%AE%E4%BB%B6/mail_prop.png" alt=""></p>
 <blockquote>
-<p>成功访问</p>
-</blockquote>
-<p><img src="/images/springbootError400/2020-07-24-06.png" alt=""></p>
-<blockquote>
-<p>以上是个人解决办法，记录一下，防止以后踩坑 ::</p>
-</blockquote>
+<h2 id="可以测试了"><a href="#可以测试了" class="headerlink" title="可以测试了"></a>可以测试了</h2></blockquote>
+<p><img src="/images/springboot%E5%8F%91%E9%82%AE%E4%BB%B6/mail_test.png" alt="这是一封简单的邮件"></p>
+<p><img src="/images/springboot%E5%8F%91%E9%82%AE%E4%BB%B6/mail_test2.png" alt="这是一封比较复杂的邮件"></p>
+<p><strong>本篇为个人学习笔记，更详细教程见B站”遇见狂神说“</strong></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -550,7 +547,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://github.com/YuJiangBo/2020/07/24/springbooterror400/">https://github.com/YuJiangBo/2020/07/24/springbooterror400/</a>
+                    <a href="https://github.com/YuJiangBo/2020/07/31/springboot-fa-you-jian/">https://github.com/YuJiangBo/2020/07/31/springboot-fa-you-jian/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -596,8 +593,8 @@
                                     <span class="chip bg-color">学习笔记</span>
                                 </a>
                             
-                                <a href="/tags/error/">
-                                    <span class="chip bg-color">error</span>
+                                <a href="/tags/email/">
+                                    <span class="chip bg-color">email</span>
                                 </a>
                             
                         </div>
@@ -765,85 +762,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2020/07/27/springboot-zheng-he-jdbc/">
+                <a href="/2020/07/31/springboot-fa-you-jian/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/10.jpg" class="responsive-img" alt="springboot整合JDBC">
+                        <img src="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/6.jpg" class="responsive-img" alt="springboot发邮件">
                         
-                        <span class="card-title">springboot整合JDBC</span>
+                        <span class="card-title">springboot发邮件</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            用springboot简单整合JDBC，完成对数据库的操作
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/springboot/" class="post-category">
-                                    springboot
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/springboot/">
-                        <span class="chip bg-color">springboot</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">学习笔记</span>
-                    </a>
-                    
-                    <a href="/tags/JDBC/">
-                        <span class="chip bg-color">JDBC</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/07/21/yml-yu-fa-xue-xi/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/0.jpg" class="responsive-img" alt="yml语法">
-                        
-                        <span class="card-title">yml语法</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            springboot配置文件-yml语法
+                            采用springboot发送qq邮件
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-31
                             </span>
                         <span class="publish-author">
                             
@@ -857,6 +798,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -868,8 +810,69 @@
                         <span class="chip bg-color">学习笔记</span>
                     </a>
                     
-                    <a href="/tags/yml/">
-                        <span class="chip bg-color">yml</span>
+                    <a href="/tags/email/">
+                        <span class="chip bg-color">email</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/07/30/springsecrity/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/16.jpg" class="responsive-img" alt="SpringSecrity">
+                        
+                        <span class="card-title">SpringSecrity</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            学习SpringSecurity安全框架，挺好用的！
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/SpringSecurity/" class="post-category">
+                                    SpringSecurity
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/SpringSecurity/">
+                        <span class="chip bg-color">SpringSecurity</span>
+                    </a>
+                    
+                    <a href="/tags/thymeleaf/">
+                        <span class="chip bg-color">thymeleaf</span>
+                    </a>
+                    
+                    <a href="/tags/springboot/">
+                        <span class="chip bg-color">springboot</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">学习笔记</span>
                     </a>
                     
                 </div>

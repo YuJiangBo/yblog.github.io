@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>springboot发邮件</title>
+      <link href="/2020/07/31/springboot-fa-you-jian/"/>
+      <url>/2020/07/31/springboot-fa-you-jian/</url>
+      
+        <content type="html"><![CDATA[<h1 id="springboot发邮件"><a href="#springboot发邮件" class="headerlink" title="springboot发邮件"></a>springboot发邮件</h1><p><strong>学习用springboot发送qq邮件</strong></p><blockquote><h2 id="进入qq邮箱，开启服务，保存密钥"><a href="#进入qq邮箱，开启服务，保存密钥" class="headerlink" title="进入qq邮箱，开启服务，保存密钥"></a>进入qq邮箱，开启服务，保存密钥</h2></blockquote><p><img src="/images/springboot%E5%8F%91%E9%82%AE%E4%BB%B6/mail_path.png" alt=""></p><p><img src="/images/springboot%E5%8F%91%E9%82%AE%E4%BB%B6/mail_pwd.png" alt=""></p><blockquote><h2 id="导入email相关的依赖"><a href="#导入email相关的依赖" class="headerlink" title="导入email相关的依赖"></a>导入email相关的依赖</h2></blockquote><pre class=" language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!--邮件--></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-mail<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre><blockquote><h2 id="配置application-properties"><a href="#配置application-properties" class="headerlink" title="配置application.properties"></a>配置application.properties</h2></blockquote><p><img src="/images/springboot%E5%8F%91%E9%82%AE%E4%BB%B6/mail_prop.png" alt=""></p><blockquote><h2 id="可以测试了"><a href="#可以测试了" class="headerlink" title="可以测试了"></a>可以测试了</h2></blockquote><p><img src="/images/springboot%E5%8F%91%E9%82%AE%E4%BB%B6/mail_test.png" alt="这是一封简单的邮件"></p><p><img src="/images/springboot%E5%8F%91%E9%82%AE%E4%BB%B6/mail_test2.png" alt="这是一封比较复杂的邮件"></p><p><strong>本篇为个人学习笔记，更详细教程见B站”遇见狂神说“</strong></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> springboot </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> springboot </tag>
+            
+            <tag> 学习笔记 </tag>
+            
+            <tag> email </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SpringSecrity</title>
       <link href="/2020/07/30/springsecrity/"/>
       <url>/2020/07/30/springsecrity/</url>
@@ -134,11 +163,11 @@
       
         <tags>
             
-            <tag> error </tag>
-            
             <tag> springboot </tag>
             
             <tag> 学习笔记 </tag>
+            
+            <tag> error </tag>
             
         </tags>
       
