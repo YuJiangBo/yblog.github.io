@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>springboot异步方法</title>
+      <link href="/2020/08/01/springboot-yi-bu-fang-fa/"/>
+      <url>/2020/08/01/springboot-yi-bu-fang-fa/</url>
+      
+        <content type="html"><![CDATA[<h1 id="springboot异步方法"><a href="#springboot异步方法" class="headerlink" title="springboot异步方法"></a>springboot异步方法</h1><blockquote><p>先来两个方法</p></blockquote><pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Service</span><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AsyncService</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>        <span class="token keyword">try</span> <span class="token punctuation">{</span>            Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//模拟等待三秒</span>        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"数据正在处理..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token annotation punctuation">@Async</span>  <span class="token comment" spellcheck="true">//告诉spring这是一个异步的方法</span>    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">hi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>        <span class="token keyword">try</span> <span class="token punctuation">{</span>            Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//模拟等待三秒</span>        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"数据正在处理..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><blockquote><p>controller层调用</p></blockquote><pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Controller</span><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AsyncController</span> <span class="token punctuation">{</span>    <span class="token annotation punctuation">@Autowired</span>    AsyncService asyncService<span class="token punctuation">;</span>    <span class="token annotation punctuation">@ResponseBody</span>    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/hello"</span><span class="token punctuation">)</span>    <span class="token keyword">public</span> String <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>        asyncService<span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//停止三秒</span>        <span class="token keyword">return</span> <span class="token string">"hello"</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>    <span class="token annotation punctuation">@ResponseBody</span>    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/hi"</span><span class="token punctuation">)</span>    <span class="token keyword">public</span> String <span class="token function">hi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>        asyncService<span class="token punctuation">.</span><span class="token function">hi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//异步任务</span>        <span class="token keyword">return</span> <span class="token string">"hi"</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span></code></pre><blockquote><p>重点：记得在启动类上添加开启异步功能注解</p></blockquote><p><strong>@EnableAsync    //开启异步功能注解</strong></p><pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@EnableAsync</span>    <span class="token comment" spellcheck="true">//开启异步功能注解</span><span class="token annotation punctuation">@SpringBootApplication</span><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SpringbootAsynApplication</span> <span class="token punctuation">{</span>    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>        SpringApplication<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span>SpringbootAsynApplication<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><blockquote><p>运行springboot项目</p></blockquote><p>到本地浏览器localhost:8080分别请求“hello”和“hi”，观察页面跟控制台</p><blockquote><p>结果</p></blockquote><ul><li><p>请求“hello”会在该方法执行时等待3秒才跳转到打印hello页面，控制台输出”数据正在处理…”</p></li><li><p>请求“hi”会在方法执行时就跳转到打印hi页面，过3秒后才在控制台输出”数据正在处理…”</p></li></ul><p><strong>本篇为个人学习笔记，更详细教程见B站”遇见狂神说“</strong></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> springboot </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> springboot </tag>
+            
+            <tag> 学习笔记 </tag>
+            
+            <tag> 异步 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>springboot发邮件</title>
       <link href="/2020/07/31/springboot-fa-you-jian/"/>
       <url>/2020/07/31/springboot-fa-you-jian/</url>
@@ -163,11 +192,11 @@
       
         <tags>
             
+            <tag> error </tag>
+            
             <tag> springboot </tag>
             
             <tag> 学习笔记 </tag>
-            
-            <tag> error </tag>
             
         </tags>
       
