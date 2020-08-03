@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="springboot异步方法, Yblog">
+    <meta name="keywords" content="springboot定时任务, Yblog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>springboot异步方法 | Yblog</title>
+    <title>springboot定时任务 | Yblog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">springboot异步方法</h1>
+                    <h1 class="description center-align post-title">springboot定时任务</h1>
                 </div>
             </div>
         </div>
@@ -438,8 +438,8 @@
                                 <span class="chip bg-color">学习笔记</span>
                             </a>
                         
-                            <a href="/tags/%E5%BC%82%E6%AD%A5/">
-                                <span class="chip bg-color">异步</span>
+                            <a href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">
+                                <span class="chip bg-color">定时任务</span>
                             </a>
                         
                     </div>
@@ -463,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-08-01
+                    2020-08-03
                 </div>
                 
 
@@ -484,79 +484,51 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="springboot异步方法"><a href="#springboot异步方法" class="headerlink" title="springboot异步方法"></a>springboot异步方法</h1><blockquote>
-<p>先来两个方法</p>
+                <h1 id="springboot定时任务"><a href="#springboot定时任务" class="headerlink" title="springboot定时任务"></a>springboot定时任务</h1><blockquote>
+<p>首先需要在springboot启动类上添加开启定时功能的注解</p>
 </blockquote>
-<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Service</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AsyncService</span> <span class="token punctuation">{</span>
+<p><strong>@EnableScheduling   //开启定时功能的注解</strong></p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>yu<span class="token punctuation">;</span>
 
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">try</span> <span class="token punctuation">{</span>
-            Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//模拟等待三秒</span>
-        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"数据正在处理..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>SpringApplication<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>autoconfigure<span class="token punctuation">.</span>SpringBootApplication<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>scheduling<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>EnableScheduling<span class="token punctuation">;</span>
 
-    <span class="token annotation punctuation">@Async</span>  <span class="token comment" spellcheck="true">//告诉spring这是一个异步的方法</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">hi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">try</span> <span class="token punctuation">{</span>
-            Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//模拟等待三秒</span>
-        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"数据正在处理..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<blockquote>
-<p>controller层调用</p>
-</blockquote>
-<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Controller</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AsyncController</span> <span class="token punctuation">{</span>
-
-    <span class="token annotation punctuation">@Autowired</span>
-    AsyncService asyncService<span class="token punctuation">;</span>
-
-    <span class="token annotation punctuation">@ResponseBody</span>
-    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/hello"</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> String <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        asyncService<span class="token punctuation">.</span><span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//停止三秒</span>
-        <span class="token keyword">return</span> <span class="token string">"hello"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token annotation punctuation">@ResponseBody</span>
-    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/hi"</span><span class="token punctuation">)</span>
-    <span class="token keyword">public</span> String <span class="token function">hi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        asyncService<span class="token punctuation">.</span><span class="token function">hi</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//异步任务</span>
-        <span class="token keyword">return</span> <span class="token string">"hi"</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span></code></pre>
-<blockquote>
-<p>重点：记得在启动类上添加开启异步功能注解</p>
-</blockquote>
-<p><strong>@EnableAsync    //开启异步功能注解</strong></p>
-<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@EnableAsync</span>    <span class="token comment" spellcheck="true">//开启异步功能注解</span>
+<span class="token annotation punctuation">@EnableScheduling</span>   <span class="token comment" spellcheck="true">//开启定时功能的注解</span>
 <span class="token annotation punctuation">@SpringBootApplication</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SpringbootAsynApplication</span> <span class="token punctuation">{</span>
 
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
         SpringApplication<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span>SpringbootAsynApplication<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
+
 <span class="token punctuation">}</span></code></pre>
 <blockquote>
-<p>运行springboot项目</p>
+<p>写具有定时功能的方法</p>
 </blockquote>
-<p>到本地浏览器localhost:8080分别请求“hello”和“hi”，观察页面跟控制台</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>yu<span class="token punctuation">.</span>service<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>scheduling<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>Scheduled<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span>Service<span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Service</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ScheduleService</span> <span class="token punctuation">{</span>
+
+<span class="token comment" spellcheck="true">//    在一个特定的时间执行还可以用Timer</span>
+
+<span class="token comment" spellcheck="true">//    corn表达式     秒 分 时 日 月 周几        （更详细介绍请自行百度）</span>
+<span class="token comment" spellcheck="true">//    30 15 10 * * ?       每天10点15分30秒执行一次</span>
+    <span class="token annotation punctuation">@Scheduled</span><span class="token punctuation">(</span>cron <span class="token operator">=</span> <span class="token string">"30 15 10 * * ?"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"你被执行了"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <blockquote>
-<p>结果</p>
+<p>结果：该方法会在规定的时间执行</p>
 </blockquote>
-<ul>
-<li><p>请求“hello”会在该方法执行时等待3秒才跳转到打印hello页面，控制台输出”数据正在处理…”</p>
-</li>
-<li><p>请求“hi”会在方法执行时就跳转到打印hi页面，过3秒后才在控制台输出”数据正在处理…”</p>
-</li>
-</ul>
-<p><strong>本篇为个人学习笔记，更详细教程见B站”遇见狂神说“</strong></p>
+<p><strong>注意：该方法只有在项目一直启动时才会在规定的时间执行，项目停止后也就不会执行</strong></p>
+<p><strong><em>本篇为个人学习笔记，更详细教程见B站”遇见狂神说“</em></strong></p>
+<hr>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -600,7 +572,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://github.com/YuJiangBo/2020/08/01/springboot-yi-bu-fang-fa/">https://github.com/YuJiangBo/2020/08/01/springboot-yi-bu-fang-fa/</a>
+                    <a href="https://github.com/YuJiangBo/2020/08/03/springboot-ding-shi-ren-wu/">https://github.com/YuJiangBo/2020/08/03/springboot-ding-shi-ren-wu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -646,8 +618,8 @@
                                     <span class="chip bg-color">学习笔记</span>
                                 </a>
                             
-                                <a href="/tags/%E5%BC%82%E6%AD%A5/">
-                                    <span class="chip bg-color">异步</span>
+                                <a href="/tags/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">
+                                    <span class="chip bg-color">定时任务</span>
                                 </a>
                             
                         </div>
@@ -815,9 +787,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2020/08/03/springboot-ding-shi-ren-wu/">
                     <div class="card-image">
@@ -835,9 +808,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -850,6 +823,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -876,24 +850,24 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/31/springboot-fa-you-jian/">
+                <a href="/2020/08/01/springboot-yi-bu-fang-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/6.jpg" class="responsive-img" alt="springboot发邮件">
+                        <img src="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="springboot异步方法">
                         
-                        <span class="card-title">springboot发邮件</span>
+                        <span class="card-title">springboot异步方法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            采用springboot发送qq邮件
+                            学习springboot的异步方法
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-31
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-01
                             </span>
                         <span class="publish-author">
                             
@@ -918,8 +892,8 @@
                         <span class="chip bg-color">学习笔记</span>
                     </a>
                     
-                    <a href="/tags/email/">
-                        <span class="chip bg-color">email</span>
+                    <a href="/tags/%E5%BC%82%E6%AD%A5/">
+                        <span class="chip bg-color">异步</span>
                     </a>
                     
                 </div>
