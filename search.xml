@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>vue_computed</title>
+      <link href="/2020/08/10/vue-computed/"/>
+      <url>/2020/08/10/vue-computed/</url>
+      
+        <content type="html"><![CDATA[<h1 id="vue计算属性"><a href="#vue计算属性" class="headerlink" title="vue计算属性"></a>vue计算属性</h1><blockquote><p>用computed关键字实现计算属性</p></blockquote><p><strong>js：</strong></p><pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span>    <span class="token keyword">var</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>        el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>        data<span class="token punctuation">:</span> <span class="token punctuation">{</span>        <span class="token punctuation">}</span><span class="token punctuation">,</span>        <span class="token comment" spellcheck="true">//调用时{{currentTime1()}} currentTime1后面要跟()</span>        methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>            currentTime1<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>                <span class="token keyword">return</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span>        <span class="token punctuation">}</span><span class="token punctuation">,</span>        <span class="token comment" spellcheck="true">//computed 计算属性 调用时{{currentTime2}} currentTime2后面不用跟()</span>        <span class="token comment" spellcheck="true">// 用内存去做 ，类似缓存，内容更新后调用会重新计算</span>        computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>            currentTime2<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>                <span class="token keyword">return</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span>        <span class="token punctuation">}</span>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre><p><strong>html:</strong></p><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>{{currentTime1}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>{{currentTime1()}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>{{currentTime2}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre><blockquote><p>效果</p></blockquote><p><img src="/images/vue-computed/vue_computed.png" alt=""></p><p><strong>本篇为个人学习笔记，更详细运用请参照官网</strong></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Vue </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习笔记 </tag>
+            
+            <tag> vue </tag>
+            
+            <tag> computed </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vue基础语法</title>
       <link href="/2020/08/05/vue-ji-chu-yu-fa/"/>
       <url>/2020/08/05/vue-ji-chu-yu-fa/</url>
@@ -134,13 +163,13 @@
       
         <tags>
             
-            <tag> SpringSecurity </tag>
-            
-            <tag> thymeleaf </tag>
-            
             <tag> springboot </tag>
             
             <tag> 学习笔记 </tag>
+            
+            <tag> SpringSecurity </tag>
+            
+            <tag> thymeleaf </tag>
             
         </tags>
       
@@ -192,9 +221,9 @@
       
         <tags>
             
-            <tag> MySQL </tag>
-            
             <tag> error </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
