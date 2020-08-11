@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>vue_component</title>
+      <link href="/2020/08/11/vue-component/"/>
+      <url>/2020/08/11/vue-component/</url>
+      
+        <content type="html"><![CDATA[<h1 id="vue组件"><a href="#vue组件" class="headerlink" title="vue组件"></a>vue组件</h1><p>组件是可复用的vue实例，是一组可以重复使用的模板</p><blockquote><p>运用组件</p></blockquote><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>yu</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>item in arr<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">v-bind:</span>aaa</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>yu</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre><blockquote><p>局部组件</p></blockquote><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>    el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>    data<span class="token punctuation">:</span> <span class="token punctuation">{</span>        arr<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"li1111"</span><span class="token punctuation">,</span><span class="token string">"li2222"</span><span class="token punctuation">,</span><span class="token string">"li3333"</span><span class="token punctuation">,</span><span class="token string">"li4444"</span><span class="token punctuation">]</span>    <span class="token punctuation">}</span><span class="token punctuation">,</span>    components<span class="token punctuation">:</span> <span class="token punctuation">{</span>        <span class="token comment" spellcheck="true">//是components不是component</span>        <span class="token string">'yu'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>            props<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'aaa'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>            template<span class="token punctuation">:</span> <span class="token string">'&lt;h1>{{aaa}}&lt;/h1>'</span>  <span class="token comment" spellcheck="true">//是单引号</span>        <span class="token punctuation">}</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre><p><img src="/images/vue-component/component1.png" alt=""></p><blockquote><p>全局组件</p></blockquote><pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span>    <span class="token comment" spellcheck="true">// 全局组件</span>    Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">"yu"</span><span class="token punctuation">,</span><span class="token punctuation">{</span>        props<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'aaa'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>        template<span class="token punctuation">:</span> <span class="token string">'&lt;h1>{{aaa}}&lt;/h1>'</span>  <span class="token comment" spellcheck="true">//是单引号</span>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token keyword">var</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>    el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>    data<span class="token punctuation">:</span> <span class="token punctuation">{</span>        arr<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"li1111"</span><span class="token punctuation">,</span><span class="token string">"li2222"</span><span class="token punctuation">,</span><span class="token string">"li3333"</span><span class="token punctuation">,</span><span class="token string">"li4444"</span><span class="token punctuation">]</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre><p><img src="/images/vue-component/component2.png" alt=""></p><p><strong>本篇为个人学习笔记，更详细运用请参照官网</strong></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Vue </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习笔记 </tag>
+            
+            <tag> vue </tag>
+            
+            <tag> component </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vue_computed</title>
       <link href="/2020/08/10/vue-computed/"/>
       <url>/2020/08/10/vue-computed/</url>
@@ -221,9 +250,9 @@
       
         <tags>
             
-            <tag> error </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> error </tag>
             
         </tags>
       
