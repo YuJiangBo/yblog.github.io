@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="springboot发邮件, Yblog">
+    <meta name="keywords" content="vue-slot, Yblog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>springboot发邮件 | Yblog</title>
+    <title>vue-slot | Yblog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">springboot发邮件</h1>
+                    <h1 class="description center-align post-title">vue-slot</h1>
                 </div>
             </div>
         </div>
@@ -430,16 +430,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/springboot/">
-                                <span class="chip bg-color">springboot</span>
-                            </a>
-                        
                             <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
                                 <span class="chip bg-color">学习笔记</span>
                             </a>
                         
-                            <a href="/tags/email/">
-                                <span class="chip bg-color">email</span>
+                            <a href="/tags/vue/">
+                                <span class="chip bg-color">vue</span>
+                            </a>
+                        
+                            <a href="/tags/slot/">
+                                <span class="chip bg-color">slot</span>
                             </a>
                         
                     </div>
@@ -450,8 +450,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/springboot/" class="post-category">
-                                springboot
+                            <a href="/categories/Vue/" class="post-category">
+                                Vue
                             </a>
                         
                     </div>
@@ -463,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-07-31
+                    2020-08-18
                 </div>
                 
 
@@ -484,26 +484,44 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="springboot发邮件"><a href="#springboot发邮件" class="headerlink" title="springboot发邮件"></a>springboot发邮件</h1><p><strong>学习用springboot发送qq邮件</strong></p>
+                <h1 id="vue-插槽"><a href="#vue-插槽" class="headerlink" title="vue 插槽"></a>vue 插槽</h1><p>父组件：</p>
+<pre class=" language-javascript"><code class="language-javascript">Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">"all"</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+    template<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`&lt;div>
+                    &lt;slot name="s-title">&lt;/slot>
+                    &lt;ul>
+                    &lt;slot name="s-text">&lt;/slot>
+                    &lt;/ul>
+               &lt;/div>`</span></span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>子组件：</p>
+<pre class=" language-javascript"><code class="language-javascript">Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">"s-title"</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+    props<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'ttt'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    template<span class="token punctuation">:</span> <span class="token string">'&lt;h1>{{ttt}}&lt;/h1>'</span>  
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">"s-text"</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+    props<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'aaa'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    template<span class="token punctuation">:</span> <span class="token string">'&lt;li>{{aaa}}&lt;/li>'</span>  
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>data:</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
+    data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        title<span class="token punctuation">:</span> <span class="token string">"this is title"</span><span class="token punctuation">,</span>
+        arr<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"li1111"</span><span class="token punctuation">,</span><span class="token string">"li2222"</span><span class="token punctuation">,</span><span class="token string">"li3333"</span><span class="token punctuation">,</span><span class="token string">"li4444"</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>HTML：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>all</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>s-title</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>s-title<span class="token punctuation">"</span></span> <span class="token attr-name">:ttt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>title<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>s-title</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>s-text</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>s-text<span class="token punctuation">"</span></span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>item in arr<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">v-bind:</span>aaa</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>s-text</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>all</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
 <blockquote>
-<h2 id="进入qq邮箱，开启服务，保存密钥"><a href="#进入qq邮箱，开启服务，保存密钥" class="headerlink" title="进入qq邮箱，开启服务，保存密钥"></a>进入qq邮箱，开启服务，保存密钥</h2></blockquote>
-<p><img src="/images/springboot%E5%8F%91%E9%82%AE%E4%BB%B6/mail_path.png" alt=""></p>
-<p><img src="/images/springboot%E5%8F%91%E9%82%AE%E4%BB%B6/mail_pwd.png" alt=""></p>
-<blockquote>
-<h2 id="导入email相关的依赖"><a href="#导入email相关的依赖" class="headerlink" title="导入email相关的依赖"></a>导入email相关的依赖</h2></blockquote>
-<pre class=" language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!--邮件--></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-mail<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
-<blockquote>
-<h2 id="配置application-properties"><a href="#配置application-properties" class="headerlink" title="配置application.properties"></a>配置application.properties</h2></blockquote>
-<p><img src="/images/springboot%E5%8F%91%E9%82%AE%E4%BB%B6/mail_prop.png" alt=""></p>
-<blockquote>
-<h2 id="可以测试了"><a href="#可以测试了" class="headerlink" title="可以测试了"></a>可以测试了</h2></blockquote>
-<p><img src="/images/springboot%E5%8F%91%E9%82%AE%E4%BB%B6/mail_test.png" alt="这是一封简单的邮件"></p>
-<p><img src="/images/springboot%E5%8F%91%E9%82%AE%E4%BB%B6/mail_test2.png" alt="这是一封比较复杂的邮件"></p>
-<p><strong>本篇为个人学习笔记，更详细教程见B站”遇见狂神说“</strong></p>
+<p>效果</p>
+</blockquote>
+<p><img src="/images/vue-slot/vue_slot.png" alt=""></p>
+<p><strong>本篇为个人学习笔记，仅供参考</strong></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -547,7 +565,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://github.com/YuJiangBo/2020/07/31/springboot-fa-you-jian/">https://github.com/YuJiangBo/2020/07/31/springboot-fa-you-jian/</a>
+                    <a href="https://github.com/YuJiangBo/2020/08/18/vue-slot/">https://github.com/YuJiangBo/2020/08/18/vue-slot/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -585,16 +603,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/springboot/">
-                                    <span class="chip bg-color">springboot</span>
-                                </a>
-                            
                                 <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
                                     <span class="chip bg-color">学习笔记</span>
                                 </a>
                             
-                                <a href="/tags/email/">
-                                    <span class="chip bg-color">email</span>
+                                <a href="/tags/vue/">
+                                    <span class="chip bg-color">vue</span>
+                                </a>
+                            
+                                <a href="/tags/slot/">
+                                    <span class="chip bg-color">slot</span>
                                 </a>
                             
                         </div>
@@ -1025,54 +1043,56 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2020/08/01/springboot-yi-bu-fang-fa/">
+                <a href="/2020/08/18/vue-slot/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/2.jpg" class="responsive-img" alt="springboot异步方法">
+                        <img src="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/19.jpg" class="responsive-img" alt="vue-slot">
                         
-                        <span class="card-title">springboot异步方法</span>
+                        <span class="card-title">vue-slot</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            学习springboot的异步方法
+                            vue 插槽
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/springboot/" class="post-category">
-                                    springboot
+                            <a href="/categories/Vue/" class="post-category">
+                                    Vue
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/springboot/">
-                        <span class="chip bg-color">springboot</span>
-                    </a>
                     
                     <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
                         <span class="chip bg-color">学习笔记</span>
                     </a>
                     
-                    <a href="/tags/%E5%BC%82%E6%AD%A5/">
-                        <span class="chip bg-color">异步</span>
+                    <a href="/tags/vue/">
+                        <span class="chip bg-color">vue</span>
+                    </a>
+                    
+                    <a href="/tags/slot/">
+                        <span class="chip bg-color">slot</span>
                     </a>
                     
                 </div>
@@ -1086,31 +1106,31 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/30/springsecrity/">
+                <a href="/2020/08/15/vue-filter/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/16.jpg" class="responsive-img" alt="SpringSecrity">
+                        <img src="https://cdn.jsdelivr.net/gh/YuJiangBo/YuJiangBo.github.io/medias/featureimages/23.jpg" class="responsive-img" alt="vue-filter">
                         
-                        <span class="card-title">SpringSecrity</span>
+                        <span class="card-title">vue-filter</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            学习SpringSecurity安全框架，挺好用的！
+                            vue拦截器
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/SpringSecurity/" class="post-category">
-                                    SpringSecurity
+                            <a href="/categories/Vue/" class="post-category">
+                                    Vue
                                 </a>
                             
                             
@@ -1120,20 +1140,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/springboot/">
-                        <span class="chip bg-color">springboot</span>
-                    </a>
-                    
                     <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
                         <span class="chip bg-color">学习笔记</span>
                     </a>
                     
-                    <a href="/tags/SpringSecurity/">
-                        <span class="chip bg-color">SpringSecurity</span>
+                    <a href="/tags/vue/">
+                        <span class="chip bg-color">vue</span>
                     </a>
                     
-                    <a href="/tags/thymeleaf/">
-                        <span class="chip bg-color">thymeleaf</span>
+                    <a href="/tags/filter/">
+                        <span class="chip bg-color">filter</span>
                     </a>
                     
                 </div>
